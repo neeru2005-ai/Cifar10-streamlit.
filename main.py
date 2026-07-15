@@ -2,11 +2,13 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 
+
+from tensorflow.keras.models import load_model
 from huggingface_hub import hf_hub_download
 model_path=hf_hub_download(repo_id='Neeruchandel1/cifar10-model',filename='cifar10-object-recognition.keras')
 model=load_model(model_path)
 
-from tensorflow.keras.models import load_model
+
 #class name
 class_names=['frog', 'truck', 'deer', 'automobile', 'bird', 'horse', 'ship',
        'cat', 'dog', 'airplane']
