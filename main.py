@@ -1,10 +1,12 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
-
-
 from tensorflow.keras.models import load_model
 from huggingface_hub import hf_hub_download
+from huggingface_hub import list_repo_files
+
+files = list_repo_files("Neeruchandel1/cifar10-model")
+
 model_path=hf_hub_download(repo_id='Neeruchandel1/cifar10-model',filename='cifar10-object-recognition.keras')
 model=load_model(model_path)
 
@@ -24,7 +26,7 @@ def preprocess_image(image):
     return image
 
 
-st.title('CIFAR-10 Dataset')
+st.title('CIFAR-10 OBJECT RECOGNITION PROJECT')
 
 #instruction
 upload_image = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
